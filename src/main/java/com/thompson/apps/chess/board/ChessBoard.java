@@ -12,6 +12,11 @@ import com.thompson.apps.chess.pieces.Pawn;
 import com.thompson.apps.chess.pieces.Queen;
 import com.thompson.apps.chess.pieces.Rook;
 
+/**
+ * Chess Board Class
+ * 
+ * @author RobertThompson
+ */
 public class ChessBoard {
 	/* Chess Board - 2D Array of Cells */
 	private Cell board[][];
@@ -23,12 +28,8 @@ public class ChessBoard {
 	private List<AbstractPiece> blackPieces = null;
 
 	/**
-	 * FUNCTION_ABSTRACT: ChessBoard
-	 * 
-	 * PURPOSE: Default constructor for the ChessBoard. Creates a new 2D-Array of
-	 * Cells and then sets a new Cell object for each position in the array.
-	 * 
-	 * END FUNCTION_ABSTRACT
+	 * Default constructor for the ChessBoard. Creates a new 2D-Array of Cells and
+	 * then sets a new Cell object for each position in the array.
 	 */
 	public ChessBoard() {
 		board = new Cell[8][8];
@@ -39,12 +40,8 @@ public class ChessBoard {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: createBlankBoard
-	 * 
-	 * PURPOSE: Creates a blank board by placing cells with null pieces for every
-	 * row/column of the board.
-	 * 
-	 * END FUNCTION_ABSTRACT
+	 * Creates a blank board by placing cells with null pieces for every row/column
+	 * of the board.
 	 */
 	private void createBlankBoard() {
 		for (int i = 0; i < board.length; i++) {
@@ -55,11 +52,7 @@ public class ChessBoard {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: setDefaultBoard
-	 * 
-	 * PURPOSE: Sets a default generic chess board
-	 * 
-	 * END FUNCTION_ABSTRACT
+	 * Sets a default generic chess board
 	 */
 	public void setDefaultBoard() {
 		setBoard(true);
@@ -67,14 +60,10 @@ public class ChessBoard {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: setBoard
+	 * Sets the board at specific position for each piece based on the parameter of
+	 * if the piece is white or black
 	 * 
-	 * PURPOSE: Sets the board at specific position for each piece based on the
-	 * parameter of if the piece is white or black
-	 * 
-	 * @param boolean white
-	 * 
-	 *                END FUNCTION_ABSTRACT
+	 * @param boolean white - true if white, false otherwise
 	 */
 	private void setBoard(boolean white) {
 		int pawnRow = white ? 1 : 6;
@@ -103,16 +92,12 @@ public class ChessBoard {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: setCustomPiece
-	 * 
-	 * PURPOSE: Sets one custom piece on the board
+	 * Sets one custom piece on the board
 	 * 
 	 * NOTE: This method is primarily used for testing purposes as well as custom
 	 * board creations.
 	 * 
 	 * @param AbstractPiece p - Custom Piece to be set
-	 * 
-	 *                      END FUNCTION_ABSTRACT
 	 */
 	public void setCustomPiece(AbstractPiece p) {
 		int row = p.getX();
@@ -121,15 +106,8 @@ public class ChessBoard {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: setCustomBoard
-	 * 
-	 * PURPOSE: Iterates over List of White and Black pieces and sets them to their
-	 * specific location on the board.
-	 * 
-	 * @param List<AbstractPiece> whitePieces - List of White Pieces
-	 * @param List<AbstractPiece> blackPieces - List of Black Pieces
-	 * 
-	 *                            END FUNCTION_ABSTRACT
+	 * Iterates over List of White and Black pieces and sets them to their specific
+	 * location on the board.
 	 */
 	public void setCustomBoard() {
 		for (AbstractPiece p : whitePieces) {
@@ -142,11 +120,9 @@ public class ChessBoard {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: printBoard
+	 * Prints the entirety of the board with the pieces
 	 * 
-	 * PURPOSE: Prints the entirety of the board with the pieces
-	 * 
-	 * END FUNCTION_ABSTRACT
+	 * @return string
 	 */
 	public String printBoard() {
 		StringBuilder stringBuilder = new StringBuilder(64);
@@ -167,65 +143,45 @@ public class ChessBoard {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getChessBoard
-	 * 
-	 * PURPOSE: Returns a reference to the 2D-Array of the Chess Board
+	 * Returns a reference to the 2D-Array of the Chess Board
 	 * 
 	 * @return Cell[][] board
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	public Cell[][] getChessBoard() {
 		return Arrays.copyOf(board, board.length);
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: addWhitePiece
-	 * 
-	 * PURPOSE: Adds white piece to the list of white pieces
+	 * Adds a white piece to the list of white pieces
 	 * 
 	 * @param AbstractPiece p - piece
-	 * 
-	 *                      END FUNCTION_ABSTRACT
 	 */
 	public void addWhitePiece(AbstractPiece p) {
 		whitePieces.add(p);
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getWhitePieces
-	 * 
-	 * PURPOSE: Returns the list of white pieces
+	 * Returns the list of white pieces
 	 * 
 	 * @return List<AbstractPiece> - whitePieces
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	public List<AbstractPiece> getWhitePieces() {
 		return whitePieces;
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: addBlackPiece
-	 * 
-	 * PURPOSE: Adds black piece to the list of black pieces
+	 * Adds a black piece to the list of black pieces
 	 * 
 	 * @param AbstractPiece p - piece
-	 * 
-	 *                      END FUNCTION_ABSTRACT
 	 */
 	public void addBlackPiece(AbstractPiece p) {
 		blackPieces.add(p);
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getBlackPieces
-	 * 
-	 * PURPOSE: Returns the list of black pieces
+	 * Returns the list of black pieces
 	 * 
 	 * @return List<AbstractPiece> - blackPieces
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	public List<AbstractPiece> getBlackPieces() {
 		return blackPieces;

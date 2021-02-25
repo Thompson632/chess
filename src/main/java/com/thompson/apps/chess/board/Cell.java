@@ -2,6 +2,11 @@ package com.thompson.apps.chess.board;
 
 import com.thompson.apps.chess.pieces.AbstractPiece;
 
+/**
+ * Cell Class
+ * 
+ * @author RobertThompson
+ */
 public class Cell {
 	/* Represents the Chess Piece at the Given Position */
 	private AbstractPiece piece = null;
@@ -12,19 +17,14 @@ public class Cell {
 	private int y = 0;
 
 	/**
-	 * FUNCTION_ABSTRACT: Default constructor for the Cell
+	 * Default constructor for the Cell
 	 * 
-	 * PURPOSE: Represents a position on the chess board. This cell will either be
-	 * occupied by an AbstractPiece or be empty.
+	 * Represents a position on the chess board. This cell will either be occupied
+	 * by an AbstractPiece or be empty.
 	 * 
-	 * @param int 
-	 * 		x - X Position of the Piece
-	 * @param int 
-	 * 		y - Y Position of the Piece
-	 * @param AbstractPiece 
-	 * 		piece - Piece at the given x, y position
-	 * 
-	 *                      END FUNCTION_ABSTRACT
+	 * @param int           x - X Position of the Piece
+	 * @param int           y - Y Position of the Piece
+	 * @param AbstractPiece piece - Piece at the given x, y position
 	 */
 	public Cell(int x, int y, AbstractPiece piece) {
 		this.x = x;
@@ -33,39 +33,27 @@ public class Cell {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getPiece
-	 * 
-	 * PURPOSE: Returns the Piece at the given cell
+	 * Returns the Piece at the given cell
 	 * 
 	 * @return AbstractPiece piece
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	public AbstractPiece getPiece() {
 		return piece;
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getX
-	 * 
-	 * PURPOSE: Returns the X Position of the Cell
+	 * Returns the X Position of the Cell
 	 * 
 	 * @return int x
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	public int getX() {
 		return x;
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getY
-	 * 
-	 * PURPOSE: Returns the Y Position of the Cell
+	 * Returns the Y Position of the Cell
 	 * 
 	 * @return int y
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	public int getY() {
 		return y;

@@ -1,5 +1,10 @@
 package com.thompson.apps.chess.pieces;
 
+/**
+ * Piece Enum
+ * 
+ * @author RobertThompson
+ */
 public enum PieceEnum {
 	BISHOP("B"), 
 	KING("K"), 
@@ -11,29 +16,21 @@ public enum PieceEnum {
 	private String name;
 
 	/**
-	 * FUNCTION_ABSTRACT: PieceEnum
-	 * 
-	 * PURPOSE: Represents a Chess Piece.
+	 * Represents a Chess Piece.
 	 * 
 	 * Note: toString returns the name of enum value and getName returns the single
 	 * character of the piece
 	 * 
-	 * @param String name
-	 * 
-	 *               END FUNCTION_ABSTRACT
+	 * @param String name - Character representation of the Chess Piece
 	 */
-	PieceEnum(String name) {
+	private PieceEnum(String name) {
 		this.name = name;
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getName
+	 * Returns the name of the Piece
 	 * 
-	 * PURPOSE: Returns the name of the Piece
-	 * 
-	 * @return String name
-	 * 
-	 *         END FUNCTION_ABSTRACT
+	 * @return String name - Character representation of the Chess Piece
 	 */
 	public String getName() {
 		return name;

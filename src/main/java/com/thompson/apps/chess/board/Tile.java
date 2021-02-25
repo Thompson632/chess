@@ -1,5 +1,10 @@
 package com.thompson.apps.chess.board;
 
+/**
+ * Tile Enum
+ * 
+ * @author RobertThompson
+ */
 public enum Tile {
     A1(0, 0, "A1"),
     A2(1, 0, "A2"),
@@ -78,15 +83,11 @@ public enum Tile {
     private String name;
 
 	/**
-	 * FUNCTION_ABSTRACT: Tile
-	 * 
-	 * PURPOSE: Constructor for the Chess Tile Enum
+	 * Constructor for the Chess Tile Enum
 	 * 
 	 * @param int    x
 	 * @param int    y
 	 * @param String name
-	 * 
-	 *               END FUNCTION_ABSTRACT
 	 */
 	private Tile(int x, int y, String name) {
 		this.x = x;
@@ -95,48 +96,34 @@ public enum Tile {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getX
-	 * 
-	 * PURPOSE: Returns the x (row) of the Chess Tile
+	 * Returns the x (row) of the Chess Tile
 	 * 
 	 * @return int x
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	public int getX() {
 		return x;
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getY
-	 * 
-	 * PURPOSE: Returns the y (column) of the Chess Tile
+	 * Returns the y (column) of the Chess Tile
 	 * 
 	 * @return int y
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	public int getY() {
 		return y;
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getName
-	 * 
-	 * PURPOSE: Returns the name of the Chess Tile
+	 * Returns the name of the Chess Tile
 	 * 
 	 * @return String name
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	public String getName() {
 		return name;
 	}
-	
+
 	/**
-	 * FUNCTION_ABSTRACT: getTileAtPosition
-	 * 
-	 * PURPOSE: Returns the String representation of a tile at given X, Y Position
+	 * Returns the String representation of a tile at given X, Y Position
 	 * 
 	 * NOTE: This is used as a utility function instead of converting column
 	 * characters to integer values
@@ -144,8 +131,6 @@ public enum Tile {
 	 * @param int x - X Position
 	 * @param int y - Y Position
 	 * @return String Name of Tile
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	public static String getTileAtPosition(int x, int y) {
 		for (Tile t : Tile.values()) {

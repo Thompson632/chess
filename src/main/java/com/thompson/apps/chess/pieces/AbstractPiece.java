@@ -6,6 +6,11 @@ import java.util.List;
 import com.thompson.apps.chess.board.Cell;
 import com.thompson.apps.chess.board.Tile;
 
+/**
+ * Abstract Piece Class
+ * 
+ * @author RobertThompson
+ */
 public abstract class AbstractPiece {
 	/* Initial X Location - Not on Board */
 	private int x = -1;
@@ -20,15 +25,11 @@ public abstract class AbstractPiece {
 	protected List<Cell> validMoves = null;
 
 	/**
-	 * FUNCTION_ABSTRACT: AbstractPiece
-	 * 
-	 * PURPOSE: Default constructor for the AbstractPiece.
+	 * Default constructor for the AbstractPiece.
 	 * 
 	 * @param boolean isWhite - true if white, false if black
 	 * @param int     x - X position of the Piece at creation
 	 * @param int     y - Y Position of the Piece at creation
-	 * 
-	 *                END FUNCTION_ABSTRACT
 	 */
 	public AbstractPiece(boolean isWhite, int x, int y) {
 		this.isWhite = isWhite;
@@ -39,39 +40,26 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: isWhite
+	 * Returns whether the piece is white or black
 	 * 
-	 * PURPOSE: Returns whether the piece is white or black
-	 * 
-	 * @return boolean isWhite
-	 * 
-	 *         END FUNCTION_ABSTRACT
+	 * @return boolean isWhite - true if white, false otherwise
 	 */
 	public boolean isWhite() {
 		return isWhite;
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getValidMoves
-	 * 
-	 * PURPOSE: Creates a list of valid moves based on the current state of the
-	 * board.
+	 * Creates a list of valid moves based on the current state of the board.
 	 * 
 	 * @param Cell board[][] - 2D Array of the current state of the Chess Board
 	 * @return List<Cell> - List of Valid Moves
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	public abstract List<Cell> getValidMoves(Cell board[][]);
 
 	/**
-	 * FUNCTION_ABSTRACT: validateVerticalMoves
+	 * Validates North and South Vertical Moves
 	 * 
-	 * PURPOSE: Validates North and South Vertical Moves
-	 * 
-	 * @param Cell[][] board
-	 * 
-	 *                 END FUNCTION_ABSTRACT
+	 * @param Cell[][] board - 2D Array of the current state of the Chess Board
 	 */
 	public void validateVerticalMoves(Cell[][] board) {
 		int posX = getX() + 1;
@@ -82,13 +70,9 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: validateHorizontalMoves
+	 * Validates East and West Horizontal Moves
 	 * 
-	 * PURPOSE: Validates East and West Horizontal Moves
-	 * 
-	 * @param Cell[][] board
-	 * 
-	 *                 END FUNCTION_ABSTRACT
+	 * @param Cell[][] board - 2D Array of the current state of the Chess Board
 	 */
 	public void validateHorizontalMoves(Cell[][] board) {
 		int posY = getY() + 1;
@@ -99,13 +83,9 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: validateDiagonalMoves
+	 * Validates all Diagonal Moves
 	 * 
-	 * PURPOSE: Validates all Diagonal Moves
-	 * 
-	 * @param Cell[][] board
-	 * 
-	 *                 END FUNCTION_ABSTRACT
+	 * @param Cell[][] board - 2D Array of the current state of the Chess Board
 	 */
 	public void validateDiagonalMoves(Cell[][] board) {
 		int posX = getX() + 1;
@@ -126,17 +106,13 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: validateNorthWestMoves
-	 * 
-	 * PURPOSE: Validates Diagonal North-West Moves
+	 * Validates Diagonal North-West Moves
 	 * 
 	 * NOTE: Shifts each row upwards and each column to the left each iteration
 	 * 
-	 * @param Cell[][] board
-	 * @param int      posX
-	 * @param int      posY
-	 * 
-	 *                 END FUNCTION_ABSTRACT
+	 * @param Cell[][] board - 2D Array of the current state of the Chess Board
+	 * @param int      posX - Initial X-Position
+	 * @param int      posY - Initial Y-Position
 	 */
 	public void validateNorthWestMoves(Cell[][] board, int posX, int posY) {
 		while (posX < 8 && posY >= 0) {
@@ -162,17 +138,13 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: validateSouthEast
-	 * 
-	 * PURPOSE: Validates Diagonal South-East Moves
+	 * Validates Diagonal South-East Moves
 	 * 
 	 * NOTE: Shifts each row downwards and each column to the right each iteration
 	 * 
-	 * @param Cell[][] board
-	 * @param int      posX
-	 * @param int      posY
-	 * 
-	 *                 END FUNCTION_ABSTRACT
+	 * @param Cell[][] board - 2D Array of the current state of the Chess Board
+	 * @param int      posX - Initial X-Position
+	 * @param int      posY - Initial Y-Position
 	 */
 	public void validateSouthEast(Cell[][] board, int posX, int posY) {
 		while (posX >= 0 && posY < 8) {
@@ -198,17 +170,13 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: validateSouthWestMoves
-	 * 
-	 * PURPOSE: Validates Diagonal South-West Moves
+	 * Validates Diagonal South-West Moves
 	 * 
 	 * NOTE: Shifts each row downwards and each column to the left each iteration
 	 * 
-	 * @param Cell[][] board
-	 * @param int      posX
-	 * @param int      posY
-	 * 
-	 *                 END FUNCTION_ABSTRACT
+	 * @param Cell[][] board - 2D Array of the current state of the Chess Board
+	 * @param int      posX - Initial X-Position
+	 * @param int      posY - Initial Y-Position
 	 */
 	public void validateSouthWestMoves(Cell[][] board, int posX, int posY) {
 		while (posX >= 0 && posY >= 0) {
@@ -234,17 +202,13 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: validateNorthEastMoves
-	 * 
-	 * PURPOSE: Validates Diagonal North-East Moves
+	 * Validates Diagonal North-East Moves
 	 * 
 	 * NOTE: Shifts each row upwards and each column to the right each iteration
 	 * 
-	 * @param Cell[][] board
-	 * @param int      posX
-	 * @param int      posY
-	 * 
-	 *                 END FUNCTION_ABSTRACT
+	 * @param Cell[][] board - 2D Array of the current state of the Chess Board
+	 * @param int      posX - Initial X-Position
+	 * @param int      posY - Initial Y-Position
 	 */
 	public void validateNorthEastMoves(Cell[][] board, int posX, int posY) {
 		while (posX < 8 && posY < 8) {
@@ -270,16 +234,12 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: validateNorthMoves
-	 * 
-	 * PURPOSE: Validates Vertical North Moves
+	 * Validates Vertical North Moves
 	 * 
 	 * NOTE: Shifts each row upwards each iteration
 	 * 
-	 * @param Cell[][] board
-	 * @param int      posX
-	 * 
-	 *                 END FUNCTION_ABSTRACT
+	 * @param Cell[][] board - 2D Array of the current state of the Chess Board
+	 * @param int      posX - Initial X-Position
 	 */
 	public void validateNorthMoves(Cell[][] board, int posX) {
 		while (posX < 8) {
@@ -304,16 +264,12 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: validateSouthMoves
-	 * 
-	 * PURPOSE: Validates Vertical South Moves
+	 * Validates Vertical South Moves
 	 * 
 	 * NOTE: Shifts each row downwards each iteration
 	 * 
 	 * @param Cell[][] board
-	 * @param int      posX
-	 * 
-	 *                 END FUNCTION_ABSTRACT
+	 * @param int      posX - Initial X-Position
 	 */
 	public void validateSouthMoves(Cell[][] board, int posX) {
 		while (posX >= 0) {
@@ -338,16 +294,12 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: validateEastMoves
-	 * 
-	 * PURPOSE: Validates Horizontal East Moves
+	 * Validates Horizontal East Moves
 	 * 
 	 * NOTE: Shifts each column to the right each iteration
 	 * 
-	 * @param Cell[][] board
-	 * @param int      posY
-	 * 
-	 *                 END FUNCTION_ABSTRACT
+	 * @param Cell[][] board - 2D Array of the current state of the Chess Board
+	 * @param int      posY - Initial Y-Position
 	 */
 	public void validateEastMoves(Cell[][] board, int posY) {
 		while (posY < 8) {
@@ -372,16 +324,12 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: validateWestMoves
-	 * 
-	 * PURPOSE: Validates Horizontal West Moves
+	 * Validates Horizontal West Moves
 	 * 
 	 * NOTE: Shifts each column to the left each iteration
 	 * 
-	 * @param Cell[][] board
-	 * @param int      posY
-	 * 
-	 *                 END FUNCTION_ABSTRACT
+	 * @param Cell[][] board - 2D Array of the current state of the Chess Board
+	 * @param int      posY - Initial Y-Position
 	 */
 	public void validateWestMoves(Cell[][] board, int posY) {
 		while (posY >= 0) {
@@ -406,18 +354,14 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: validateMoves
-	 * 
-	 * PURPOSE: Validates the moves based on the current state of the chess board
-	 * and the possible arrays of x and y positions of the piece.
+	 * Validates the moves based on the current state of the chess board and the
+	 * possible arrays of x and y positions of the piece.
 	 * 
 	 * Primarily used to validate positions for the Knight and King.
 	 * 
-	 * @param Cell boardPositions[][] - 2D Array of the Chess Board
+	 * @param Cell board[][] - 2D Array of the current state of the Chess Board
 	 * @param int  xPositions[] - Array of possible X-Positions
 	 * @param int  yPositions[] - Array of possibly Y-Positions
-	 * 
-	 *             END FUNCTION_ABSTRACT
 	 */
 	public void validateMoves(Cell[][] board, int xPositions[], int yPositions[]) {
 		// Step 1. Iterate Each Position
@@ -440,34 +384,23 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getPieceEnum
-	 * 
-	 * PURPOSE: Returns the Piece Enum
+	 * Returns the Piece Enum
 	 * 
 	 * @return PieceEnum
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	public abstract PieceEnum getPieceEnum();
 
 	/**
-	 * FUNCTION_ABTRACT: toString
-	 * 
-	 * PURPOSE: Returns the String representation of the piece with its location of
-	 * x, y.
+	 * Returns the String representation of the piece with its location of x, y.
 	 * 
 	 * @return String
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	public String toString() {
 		return getPieceEnum().toString() + " " + Tile.getTileAtPosition(getX(), getY());
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: toString
-	 * 
-	 * PURPOSE: Returns the String representation of the piece.
+	 * Returns the String representation of the piece.
 	 * 
 	 * Note: Capitalized letter denotes white piece, lower case letter denotes black
 	 * piece
@@ -479,28 +412,18 @@ public abstract class AbstractPiece {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getX
-	 * 
-	 * PURPOSE: Gets the current X position of this piece
+	 * Gets the current X position of this piece
 	 * 
 	 * @return int x
-	 * 
-	 *         END FUNCTION_ABSTRACT
-	 * 
 	 */
 	public int getX() {
 		return x;
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getY
-	 * 
-	 * PURPOSE: Gets the current Y position of this piece
+	 * Gets the current Y position of this piece
 	 * 
 	 * @return int y
-	 * 
-	 *         END FUNCTION_ABSTRACT
-	 * 
 	 */
 	public int getY() {
 		return y;

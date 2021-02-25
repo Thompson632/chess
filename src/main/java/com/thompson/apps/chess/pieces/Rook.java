@@ -4,19 +4,20 @@ import java.util.List;
 
 import com.thompson.apps.chess.board.Cell;
 
+/**
+ * Rook Chess Piece Class
+ * 
+ * @author RobertThompson
+ */
 public class Rook extends AbstractPiece {
 
 	/**
-	 * FUNCTION_ABSTRACT: Rook
-	 * 
-	 * PURPOSE: Default constructor for the Rook Chess Piece that takes in a color
-	 * and an initial position that is passed to the super class AbstractPiece.
+	 * Default constructor for the Rook Chess Piece that takes in a color and an
+	 * initial position that is passed to the super class AbstractPiece.
 	 * 
 	 * @param boolean isWhite - true if white, false otherwise
 	 * @param int     x - Initial X Position
 	 * @param int     y - Initial Y Position
-	 * 
-	 *                END FUNCTION_ABSTRACT
 	 */
 	public Rook(boolean isWhite, int x, int y) {
 		super(isWhite, x, y);
@@ -32,12 +33,13 @@ public class Rook extends AbstractPiece {
 		 * castling move.
 		 */
 
+		// Step 1. Clean-up Existing Moves
 		validMoves.clear();
 
-		// Horizontal Moves
+		// Step 2. Get Horizontal Moves
 		validateHorizontalMoves(board);
 
-		// Vertical Moves
+		// Step 3. Get Vertical Moves
 		validateVerticalMoves(board);
 
 		return validMoves;

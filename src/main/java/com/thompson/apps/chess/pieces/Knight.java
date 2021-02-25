@@ -4,19 +4,20 @@ import java.util.List;
 
 import com.thompson.apps.chess.board.Cell;
 
+/**
+ * Knight Chess Piece Class
+ * 
+ * @author RobertThompson
+ */
 public class Knight extends AbstractPiece {
 
 	/**
-	 * FUNCTION_ABSTRACT: Knight
-	 * 
-	 * PURPOSE: Default constructor for the Knight Chess Piece that takes in a color
-	 * and an initial position that is passed to the super class AbstractPiece.
+	 * Default constructor for the Knight Chess Piece that takes in a color and an
+	 * initial position that is passed to the super class AbstractPiece.
 	 * 
 	 * @param boolean isWhite - true if white, false otherwise
 	 * @param int     x - Initial X Position
 	 * @param int     y - Initial Y Position
-	 * 
-	 *                END FUNCTION_ABSTRACT
 	 */
 	public Knight(boolean isWhite, int x, int y) {
 		super(isWhite, x, y);
@@ -34,9 +35,10 @@ public class Knight extends AbstractPiece {
 		 * can leap over other pieces.
 		 */
 		
+		// Step 1. Clean-up Existing Moves
 		validMoves.clear();
 
-		// Step 1. Create Array of X-Position Moves with the understanding that
+		// Step 2. Create Array of X-Position Moves with the understanding that
 		// we can have max 8 valid moves.
 		int xPositions[] = {
 				getX() + 1,
@@ -49,7 +51,7 @@ public class Knight extends AbstractPiece {
 				getX() - 2
 		};
 		
-		// Step 2. Create Array of Y-Positions Moves with the understanding that
+		// Step 3. Create Array of Y-Positions Moves with the understanding that
 		// we can have max 8 valid moves.
 		int yPositions[] = {
 				getY() - 2,
@@ -63,7 +65,7 @@ public class Knight extends AbstractPiece {
 				
 		};
 
-		// Step 3. Iterate over all possible moves
+		// Step 4. Iterate over all possible moves
 		validateMoves(board, xPositions, yPositions);
 
 		return validMoves;

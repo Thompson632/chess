@@ -18,6 +18,11 @@ import com.thompson.apps.chess.pieces.Pawn;
 import com.thompson.apps.chess.pieces.Queen;
 import com.thompson.apps.chess.pieces.Rook;
 
+/**
+ * Main Class
+ * 
+ * @author RobertThompson
+ */
 public class Main {
 	/* Chess Board Reference */
 	private ChessBoard board = null;
@@ -35,12 +40,8 @@ public class Main {
 	private boolean continueRunning = true;
 
 	/**
-	 * FUNCTION_ABSTRACT: Main
-	 * 
-	 * PURPOSE: Default Constructor for the Main Classes. Initializes the board,
-	 * piece lists, default pieces, and the user-input scanner
-	 * 
-	 * END FUNCTION_ABSTRACT
+	 * Default constructor for the Main class. It initializes the ChessBoard, sets
+	 * default pieces, and initializes a Scanner object for user-input.
 	 */
 	public Main() {
 		board = new ChessBoard();
@@ -52,18 +53,14 @@ public class Main {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: start
-	 * 
-	 * PURPOSE: Prompts the user with two choices for the process: (1) Validation of
-	 * the entire default Chess Board at the start. (2) Custom Chess Board
-	 * Validation
+	 * Prompts the user with two choices for the process: 
+	 * (1) Validation of the entire default Chess Board at the start. 
+	 * (2) Custom Chess Board Validation based on user-input
 	 * 
 	 * Based on user selection, different prompts/output will be provided
 	 * 
 	 * NOTE: Exception handling is in place for bad / incorrect user input from the
 	 * start of the program to the end of the program.
-	 * 
-	 * END FUNCTION_ABSTRACT
 	 */
 	private void start() {
 		do {
@@ -106,30 +103,24 @@ public class Main {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: testCustomChessBoard
-	 * 
-	 * PURPOSE: Method that does the following actions: (1) Prompts the user for
-	 * input for the White and Black Pieces for the custom board (2) Prompts the
-	 * user for the piece to validate. (3) Calls validation methods to verify and
-	 * print out the piece's valid moves.
+	 * Method that does the following actions: 
+	 * (1) Prompts the user for input for the White and Black Pieces for the custom board 
+	 * (2) Prompts the user for the piece to validate. 
+	 * (3) Calls validation methods to verify and print out the piece's valid moves.
 	 * 
 	 * @throws Exception
-	 * 
-	 *                   END FUNCTION_ABSTRACT
 	 */
 	private void validateCustomChessBoard() throws Exception {
 		// Step 1. Prompt user for white pieces and read the value
-		System.out.println("ENTER WHITE PIECES: ");
-		String customWhitePieces = "Rf1, Kg1, Pf2, Ph2, Pg3";
-//				scanner.nextLine();
+		System.out.println("Please enter White Pieces in a comma-separated format: ");
+		String customWhitePieces = scanner.nextLine();
 
 		// Step 2. Set the local list of white pieces
 		setPieces(customWhitePieces, true);
 
 		// Step 3. Prompt user for black pieces and read the value
-		System.out.println("ENTER BLACK PIECES:");
-		String customBlackPieces = "Kb8, Ne8, Pa7, Pb7, Pc7, Ra5";
-//				scanner.nextLine();
+		System.out.println("Please enter Black Pieces in a comma-separated format: ");
+		String customBlackPieces = scanner.nextLine();
 
 		// Step 4. Set the local list of black pieces
 		setPieces(customBlackPieces, false);
@@ -138,7 +129,7 @@ public class Main {
 		board.setCustomBoard();
 
 		// Step 6. Prompt the user for piece to validate and read the value
-		System.out.println("ENTER PIECE TO GET MOVES FOR: ");
+		System.out.println("Please enter a piece to get its moves: ");
 		String stringPiece = scanner.nextLine();
 
 		// Step 7. Print the current state of the board
@@ -149,23 +140,19 @@ public class Main {
 
 		// Step 9. Get the valid moves for the current piece
 		List<Cell> moves = piece.getValidMoves(board.getChessBoard());
-		
+
 		// Step 10. Print the valid moves in human-readable format
 		printMoves(piece, moves);
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: validateDefaultChessBoard
-	 * 
-	 * PURPOSE: Method that does the following actions: (1) Creates a new instance
-	 * of the ChessBoard and sets the default pieces and their locations (2) Sets
-	 * the local Lists of White and Black Pieces to have the default pieces and
-	 * their locations (3) Calls validation methods to verify and print out each
-	 * piece's valid moves
+	 * Method that does the following actions: 
+	 * (1) Creates a new instance of the ChessBoard and sets the default pieces and their locations.
+	 * (2) Sets the list of White and Black Pieces stored in the ChessBoard object to have the default
+	 * pieces and their locations. 
+	 * (3) Calls validation methods to verify and print out each piece's valid moves
 	 * 
 	 * @throws Exception
-	 * 
-	 *                   END FUNCTION_ABSTRACT
 	 */
 	private void validateDefaultChessBoard() throws Exception {
 		// Step 1. Create new Chess Board and set it to the default layout
@@ -191,14 +178,10 @@ public class Main {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: validateDefaultWhitePieces
-	 * 
-	 * PURPOSE: Validates each white piece's move by calling the abstract
-	 * getValidMoves method with the current state of the board
+	 * Validates each white piece's move by calling the abstract getValidMoves
+	 * method with the current state of the board
 	 * 
 	 * @throws Exception
-	 * 
-	 *                   END FUNCTION_ABSTRACT
 	 */
 	private void validateDefaultWhitePieces() throws Exception {
 		// Rook
@@ -292,14 +275,10 @@ public class Main {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: testDefaultBlackPieces
-	 * 
-	 * PURPOSE: Validates each black piece's move by calling the abstract
-	 * getValidMoves method with the current state of the board
+	 * Validates each black piece's move by calling the abstract getValidMoves
+	 * method with the current state of the board
 	 * 
 	 * @throws Exception
-	 * 
-	 *                   END FUNCTION_ABSTRACT
 	 */
 	private void validateDefaultBlackPieces() throws Exception {
 		// Rook
@@ -393,22 +372,18 @@ public class Main {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: setPieces
-	 * 
-	 * PURPOSE: Parses the comma-separated String and converts it to a List of
-	 * Strings. Then converts the String to an Abstract Piece based on the boolean
-	 * value passed in as a parameter.
+	 * Parses the comma-separated String and converts it to a List of Strings. Then
+	 * converts the String to an Abstract Piece based on the boolean value passed in
+	 * as a parameter.
 	 * 
 	 * @param String  pieces - Comma-Separated String of Pieces
 	 * @param boolean isWhite - true if white, false otherwise
 	 * @throws Exception
-	 * 
-	 *                   END FUNCTION_ABSTRACT
 	 */
 	protected void setPieces(String pieces, boolean isWhite) throws Exception {
 		// Step 1. Check to see if pieces is null or is equal to an empty string
 		if (null != pieces && !pieces.equals("")) {
-			// Step 2. Convert comma-separated String to List of String
+			// Step 2. Convert comma-separated String to List of Strings
 			List<String> listPieces = Stream.of(pieces.split(",", -1)).map(String::trim).collect(Collectors.toList());
 
 			// Step 3. Iterate over each String in the List
@@ -446,15 +421,11 @@ public class Main {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getPieceToMove
-	 * 
-	 * PURPOSE: Converts the String to a Piece and then checks to see if the piece
-	 * is white or black. If neither, nothing will be validated
+	 * Converts the String to a Piece and then checks to see if the piece is white
+	 * or black. If neither, nothing will be validated
 	 * 
 	 * @param String pieceString
 	 * @throws Exception
-	 * 
-	 *                   END FUNCTION_ABSTRACT
 	 */
 	protected AbstractPiece getPieceToMove(String pieceString) throws Exception {
 		// Step 1. Check to see if pieces is null or is equal to an empty string
@@ -492,17 +463,14 @@ public class Main {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: convertStringToPiece
+	 * Converts the String to a piece based on the first character (Piece Type) and
+	 * then iterating over the Tiles to get the location provided in the String. 
 	 * 
-	 * PURPOSE: Converts the String to a piece based on the first character (Piece
-	 * Type) and then iterating over the Tiles to get the location provided in the
-	 * String. Ex. Ra1 would return Rook at Tile A1
+	 * Ex. Ra1 would return Rook at Tile A1
 	 * 
 	 * @param String  piece - Piece to be converted
 	 * @param boolean isWhite - True if white, false otherwise
 	 * @return AbstractPiece p
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	protected AbstractPiece convertStringToPiece(String piece, boolean isWhite) {
 		AbstractPiece p = null;
@@ -553,14 +521,10 @@ public class Main {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: printMoves
-	 * 
-	 * PURPOSE: Prints the valid moves for the piece in human-readable format to
-	 * align with an actual chess board piece designation
+	 * Prints the valid moves for the piece in human-readable format to align with
+	 * an actual chess board piece designation
 	 * 
 	 * @param List<Cell> validMoves - List of Valid Moves
-	 * 
-	 *                   END FUNCTION_ABSTRACT
 	 */
 	protected void printMoves(AbstractPiece piece, List<Cell> validMoves) {
 		boolean hasMoves = true;
@@ -591,11 +555,7 @@ public class Main {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: promptRunAgain
-	 * 
-	 * PURPOSE: Prompts the user to run the program again
-	 * 
-	 * END FUNCTION_ABSTRACT
+	 * Prompts the user to run the program again
 	 */
 	private void promptRunAgain() {
 		// Step 1. Prompt user to validate another board
@@ -630,40 +590,28 @@ public class Main {
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: getChessBoard
-	 * 
-	 * PURPOSE: Returns an instance of the ChessBoard for testing purposes.
+	 * Returns an instance of the ChessBoard for testing purposes.
 	 * 
 	 * @return ChessBoard board
-	 * 
-	 *         END FUNCTION_ABSTRACT
 	 */
 	protected ChessBoard getChessBoard() {
 		return board;
 	}
 
 	/**
-	 * FUNCTION_ABSTRACT: reset
-	 * 
-	 * PURPOSE: Cleans up the local class attributes by creating a new instance of
-	 * the ChessBoard object and clears the Lists of White and Black pieces.
-	 * 
-	 * END FUNCTION_ABSTRACT
+	 * Cleans up the local class attributes by creating a new instance of the
+	 * ChessBoard object.
 	 */
 	private void reset() {
-		// Garbage clean up for the ChessBoard and then new instance for theChessBoard
+		// Garbage clean up for the ChessBoard and then new instance for the ChessBoard
 		board = null;
 		board = new ChessBoard();
 	}
 
 	/**
-	 * FUNCTIION_ABSTRACT: main
-	 * 
-	 * PURPOSE: Main method that starts the program
+	 * Main method that starts the program
 	 * 
 	 * @param String[] args
-	 * 
-	 *                 END FUNCTION_ABSTRACT
 	 */
 	public static void main(String[] args) {
 		Main m = new Main();

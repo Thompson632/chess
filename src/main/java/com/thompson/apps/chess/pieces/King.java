@@ -4,19 +4,20 @@ import java.util.List;
 
 import com.thompson.apps.chess.board.Cell;
 
+/**
+ * King Chess Piece Class
+ * 
+ * @author RobertThompson
+ */
 public class King extends AbstractPiece {
 
 	/**
-	 * FUNCTION_ABSTRACT: King
-	 * 
-	 * PURPOSE: Default constructor for the King Chess Piece that takes in a color
-	 * and an initial position that is passed to the super class AbstractPiece.
+	 * Default constructor for the King Chess Piece that takes in a color and an
+	 * initial position that is passed to the super class AbstractPiece.
 	 * 
 	 * @param boolean isWhite - true if white, false otherwise
 	 * @param int     x - Initial X Position
 	 * @param int     y - Initial Y Position
-	 * 
-	 *                END FUNCTION_ABSTRACT
 	 */
 	public King(boolean isWhite, int x, int y) {
 		super(isWhite, x, y);
@@ -39,9 +40,10 @@ public class King extends AbstractPiece {
 		 * square.)
 		 */
 		
+		// Step 1. Clean-up Existing Moves
 		validMoves.clear();
 		
-		// Step 1. Create Array of X-Position Moves with the understanding that 
+		// Step 2. Create Array of X-Position Moves with the understanding that 
 		// we can have max 8 valid moves.
 		int xPositions[] = {
 				getX(),
@@ -54,7 +56,7 @@ public class King extends AbstractPiece {
 				getX() - 1
 		};
 		
-		// Step 2. Create Array of Y-Position Moves with the understanding that
+		// Step 3. Create Array of Y-Position Moves with the understanding that
 		// we can have max 8 valid moves.
 		int yPositions[] = {
 				getY() - 1,
@@ -67,7 +69,7 @@ public class King extends AbstractPiece {
 				getY() + 1
 		};
 		
-		// Step 3. Iterate over all possible moves
+		// Step 4. Iterate over all possible moves
 		validateMoves(board, xPositions, yPositions);
 		
 		return validMoves;
